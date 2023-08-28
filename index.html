@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset='utf-8' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js'></script>
+    <script src='jquery.voicerss-tts.min.js'></script>
+</head>
+<body>
+  <div class="speecharea">
+    <textarea name="speechbox" id="speechbox" rows="8" cols="40"></textarea>
+    <button id="click" type="submit" onclick="speakme()">
+      Speak
+    </button>
+    <select name="voice" id="voice" class="voice">
+      <option value="Mike">Mike</option>
+      <option value="Linda">Linda</option>
+         <option value="John">John</option>
+         <option value="Mary">Mary</option>
+               <option value="Amy">Amy </option>
+   
+   
+   
+    </select>
+  </div>
+    <script>
+    function speakme(){
+    const api_key="0c9a2dc3e64b4b258d1028b624e73953";
+    var text= "Hello Azeez what is up";
+    var box= $('#speechbox');
+    var voice= $("#voice");
+        $.speech({
+            key: api_key,
+            src: box.val(),
+            hl: 'en-us',
+            v: voice.val(),
+            r: 0, 
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+    }
+    </script>
+</body>
+</html>
